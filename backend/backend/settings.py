@@ -1,20 +1,14 @@
-import os 
-from pathlib import Path 
-from dotenv import load_dotenv 
- 
- 
-BASE_DIR = Path(__file__).resolve().parent.parent 
- 
- 
-load_dotenv() 
- 
- 
-DEFAULT_SECRET_KEY = 'my_default_secret_key' 
-DEFAULT_DEBUG = False 
-DEFAULT_ALLOWED_HOSTS = ['localhost', '127.0.0.1'] 
- 
-SECRET_KEY = os.getenv('SECRET_KEY', DEFAULT_SECRET_KEY) 
-DEBUG = os.getenv('DEBUG', str(DEFAULT_DEBUG)).lower() == 'true' 
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+DEFAULT_SECRET_KEY = 'my_default_secret_key'
+DEFAULT_DEBUG = False
+DEFAULT_ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
+SECRET_KEY = os.getenv('SECRET_KEY', DEFAULT_SECRET_KEY)
+DEBUG = os.getenv('DEBUG', str(DEFAULT_DEBUG)).lower() == 'true'
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', ','.join(DEFAULT_ALLOWED_HOSTS)).split(',')
 
 INSTALLED_APPS = [
